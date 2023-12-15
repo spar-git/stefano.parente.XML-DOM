@@ -1,0 +1,14 @@
+<? xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xnlns:lbr="http://www.xml-dom.it/spazidinomi/meteo/"
+            targetNamespace="http://www.xml-dom.it/spazidinomi/meteo/">
+
+<xsd:element name="previsioni">
+   <xsd:complexType> 
+      <xsd:sequence>
+	      <xsd:element ref="wth:previsioni" maxOccurs="unbounded" />
+      </xsd:sequence>
+   </xsd:complexType>
+</xsd:element>
+
+
