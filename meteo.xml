@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meteo>
+    <previsioni>
+
+        <giorno data="01-12-2023">
+            <condizione>Parzialmente nuvoloso</condizione>
+            <temperatura>15</temperatura>
+            <umidità>70</umidità>
+            <vento velocità="30" direzione="E" />
+            <precipitazioni probabilità="30" intensità="0.5"/>
+            <luna>
+                <fase>Nuova luna</fase>
+                <illuminazione>0</illuminazione>
+                <tendenza>Crescente</tendenza>
+            </luna>
+        </giorno>
+
+        <giorno data="02-12-2023">
+            <condizione>Piovoso</condizione>
+            <temperatura>17</temperatura>
+            <umidità>88</umidità>
+            <vento velocità="10" direzione="NE" />
+            <precipitazioni probabilità="70" intensità="6.2" />
+            <luna>
+                <fase>Primo crescente</fase>
+                <illuminazione>25</illuminazione>
+                <tendenza>Crescente</tendenza>
+            </luna>
+        </giorno>
+
+        <giorno data="03-12-2023">
+            <condizione>Soleggiato</condizione>
+            <temperatura>16</temperatura>
+            <humidità>65</humidità>
+            <vento velocità="10" direzione="NE" />
+            <precipitazioni probabilità="0" intensità="0" />
+            <luna>
+                <fase>Primo quarto</fase>
+                <illuminazione>50</illuminazione>
+                <tendenza>Crescente</tendenza>
+            </luna>
+        </giorno>
+
+        <giorno data="04-12-2023">
+            <condizione>Pioggia e schiarite</condizione>
+            <temperatura>15</temperatura>
+            <humidità>74</humidità>
+            <vento velocità="10" direzione="NE" />
+            <precipitazioni probabilità="50" intensità="1.0" />
+            <luna>
+                <fase>Gibbosa</fase>
+                <illuminazione>75</illuminazione>
+                <tendenza>Crescente</tendenza>
+            </luna>
+        </giorno>
+
+        <giorno data="05-12-2023">
+            <condizione>Temporale</condizione>
+            <temperatura>17</temperatura>
+            <humidità>92</humidità>
+            <vento velocità="10" direzione="NE" />
+            <precipitazioni probabilità="90" intensità="10.7" />
+            <luna>
+                <fase>Luna piena</fase>
+                <illuminazione>100</illuminazione>
+                <tendenza>Calante</tendenza>
+            </luna>
+        </giorno>
+
+        <giorno data="06-12-2023">
+            <condizione>Piogge intense</condizione>
+            <temperatura>16</temperatura>
+            <humidità>86</humidità>
+            <vento velocità="10" direzione="NE" />
+            <precipitazioni probabilità="88" intensità="5.4" />
+            <luna>
+                <fase>Gibbosa</fase>
+                <illuminazione>75</illuminazione>
+                <tendenza>Calante</tendenza>
+            </luna>
+        </giorno>
+
+        <giorno data="07-12-2023">
+            <condizione>Soleggiato</condizione>
+            <temperatura>14</temperatura>
+            <humidità>65</humidità>
+            <vento velocità="10" direzione="NE" />
+            <precipitazioni probabilità="5" intensità="0.1" />
+            <luna>
+                <fase>Ultimo quarto</fase>
+                <illuminazione>50</illuminazione>
+                <tendenza>Calante</tendenza>
+            </luna>
+        </giorno>
+
+    </previsioni>
+</weather>
