@@ -6,7 +6,7 @@
 <xsd:element name="previsioni">
    <xsd:complexType> 
       <xsd:sequence>
-	      <xsd:element ref="wth:previsioni" maxOccurs="unbounded" />
+	      <xsd:element ref="wth:giorno" maxOccurs="unbounded" />
       </xsd:sequence>
    </xsd:complexType>
 </xsd:element>
@@ -14,7 +14,7 @@
 <xsd:element name="giorno">
    <xsd:complexType>
       <xsd:sequence>
-         <xsd:element ref="wht:codizione" minOccurs="1" maxOccurs="1" />
+         <xsd:element ref="wht:condizione" minOccurs="1" maxOccurs="1" />
          <xsd:element ref="wht:temperatura" minOccurs="1" maxOccurs="1"/>
          <xsd:element ref="wht:umidità" minOccurs="1" maxOccurs="1" />
          <xsd:element ref="wht:vento" minOccurs="1" maxOccurs="1" />
@@ -39,29 +39,47 @@
 
 <xsd:element name="vento">
    <xsd:complexType>
-      <xsd:attribute name="velocità" type="xsd:integer" use="required" />
-      <xsd:attribute name="direzione" type="xsd:integer" use="optional" /> <!-- se non c'è vento la direzione è omessa -->
+      <xsd:attribute name="velocità" type="xsd:int" use="required">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:int">
+               <xsd:minInclusive value="1" />
+               <xsd:maxInclusive value="100" />
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name="direzione" type="directionType" use="optional" />
    </xsd:complexType>
 </xsd:element>
+
+<xsd:simpleType name="directionType">
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="N" />
+    <xsd:enumeration value="NE" />
+    <xsd:enumeration value="E" />
+    <xsd:enumeration value="SE" />
+    <xsd:enumeration value="S" />
+    <xsd:enumeration value="SW" />
+    <xsd:enumeration value="W" />
+    <xsd:enumeration value="NW" />
+  </xsd:restriction>
+</xsd:simpleType>
 
 <xsd:element name="precipitazioni">
    <xsd:complexType>
       <xsd:sequence>
-         <xsd:attribute name="probabilità" type="xsd:integer" use="required" />
-         <xsd:attribute name="intensità" type="xsd:integer" use="optional" /> <!-- se la probabilità è zero, allora non è definibile nemmeno un'intensità -->
-      </xsd:sequence>
-      </xsd:complexType>
-</xsd:element>
-
-<xsd:element name="luna">
-   <xsd:complexType>
-      <xsd:sequence>
-         <xsd:element ref="wht:fase" type="xsd:integer" use="required" />
-         <xsd:element ref="wht:illuminazione" type="xsd:integer" use="required" /> 
-         <xsd:element ref="wht:tendenza" type="xsd:string" use="required" /> 
+         <xsd:attribute name="probabilità" type="probabilityType" use="required" />
+         <xsd:attribute name="intensità" type="xsd:decimal" use="optional" />
       </xsd:sequence>
    </xsd:complexType>
 </xsd:element>
+
+<xsd:simpleType name="probabilityType">
+  <xsd:restriction base="xsd:integer">
+    <xsd:minInclusive value="0" />
+    <xsd:maxInclusive value="100" />
+  </xsd:restriction>
+</xsd:simpleType>
+
 
 
 
