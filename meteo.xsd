@@ -38,18 +38,18 @@
 <xsd:element name="umidità" type="xsd:integer"/>
 
 <xsd:element name="vento">
-   <xsd:complexType>
-      <xsd:attribute name="velocità" type="xsd:int" use="required">
-         <xsd:simpleType>
-            <xsd:restriction base="xsd:int">
-               <xsd:minInclusive value="1" />
-               <xsd:maxInclusive value="100" />
-            </xsd:restriction>
-         </xsd:simpleType>
-      </xsd:attribute>
-      <xsd:attribute name="direzione" type="directionType" use="optional" />
-   </xsd:complexType>
+    <xsd:complexType>
+        <xsd:attribute name="velocità" type="wht:velocityType" use="required" />
+        <xsd:attribute name="direzione" type="wht:directionType" use="optional" />
+    </xsd:complexType>
 </xsd:element>
+
+<xsd:simpleType name="velocityType">
+    <xsd:restriction base="xsd:int">
+        <xsd:minInclusive value="1" />
+        <xsd:maxInclusive value="100" />
+    </xsd:restriction>
+</xsd:simpleType>
 
 <xsd:simpleType name="directionType">
   <xsd:restriction base="xsd:string">
@@ -67,9 +67,8 @@
 <xsd:element name="precipitazioni">
    <xsd:complexType>
       <xsd:sequence>
-         <xsd:attribute name="probabilità" type="probabilityType" use="required" />
-         <xsd:attribute name="intensità" type="xsd:decimal" use="optional" />
-      </xsd:sequence>
+         <xsd:attribute name="probabilità" type="wht:probabilityType" use="required" />
+         <xsd:attribute name="intensità" type="wht:intensityType" use="optional" />      </xsd:sequence>
    </xsd:complexType>
 </xsd:element>
 
@@ -80,6 +79,53 @@
   </xsd:restriction>
 </xsd:simpleType>
 
+<xsd:simpleType name="intensityType">
+  <xsd:restriction base="xsd:decimal">
+      <xsd:minInclusive value="0" />
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:element name="luna" type="wht:lunaType" minOccurs="1" maxOccurs="1" />
+
+<xsd:complexType name="lunaType">
+    <xsd:sequence>
+        <xsd:element name="fase" type="wht:faseType" />
+        <xsd:element name="illuminazione" type="wht:illuminazioneType" />
+        <xsd:element name="tendenza" type="wht:tendenzaType" />
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="faseType">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="Nuova luna" />
+        <xsd:enumeration value="Primo crescente" />
+        <xsd:enumeration value="Primo quarto" />
+        <xsd:enumeration value="Gibbosa crescente" /> 
+        <xsd:enumeration value="Luna piena" />
+        <xsd:enumeration value="Gibbosa calante" />
+        <xsd:enumeration value="Ultimo quarto" />
+        <xsd:enumeration value="Ultimo calante" />
+    </xsd:restriction>
+   </xsd:complexType>
+
+   <xsd:complexType name="illuminazioneType">
+      <xsd:restriction base="xsd:int">
+         <xsd:enumeration value="0" />
+         <xsd:enumeration value="25" />
+         <xsd:enumeration value="50" />
+         <xsd:enumeration value="75" /> 
+         <xsd:enumeration value="100" />
+         <xsd:enumeration value="75" />
+         <xsd:enumeration value="50" />
+         <xsd:enumeration value="25" />
+      </xsd:restriction>
+</xsd:complexType>
+
+<xsd:complexType name="tendenzaType">
+    <xsd:restriction base="xsd:string">
+
+    </xsd:restriction>
+</xsd:complexType>
 
 
 
