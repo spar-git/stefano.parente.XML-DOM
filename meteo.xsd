@@ -31,11 +31,11 @@
    </xsd:complexType>
 </xsd:element>
 
-<xsd:element name="codizione" type="xsd:string" />
+<xsd:element name="codizione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 
-<xsd:element name="temperatura" type="xsd:integer" />
+<xsd:element name="temperatura" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 
-<xsd:element name="umidità" type="xsd:integer"/>
+<xsd:element name="umidità" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
 
 <xsd:element name="vento">
     <xsd:complexType>
@@ -89,9 +89,9 @@
 
 <xsd:complexType name="lunaType">
     <xsd:sequence>
-        <xsd:element name="fase" type="wht:faseType" />
-        <xsd:element name="illuminazione" type="wht:illuminazioneType" />
-        <xsd:element name="tendenza" type="wht:tendenzaType" />
+        <xsd:element name="fase" type="wht:faseType" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="illuminazione" type="wht:illuminazioneType" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="tendenza" type="wht:tendenzaType" minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
 </xsd:complexType>
 
@@ -115,16 +115,14 @@
          <xsd:enumeration value="50" />
          <xsd:enumeration value="75" /> 
          <xsd:enumeration value="100" />
-         <xsd:enumeration value="75" />
-         <xsd:enumeration value="50" />
-         <xsd:enumeration value="25" />
       </xsd:restriction>
 </xsd:complexType>
 
 <xsd:complexType name="tendenzaType">
-    <xsd:restriction base="xsd:string">
-
-    </xsd:restriction>
+   <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Crescente" />
+      <xsd:enumeration value="Calante" /> 
+   </xsd:restriction>
 </xsd:complexType>
 
 
