@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<previsioni>
-
+<previsioni xmlns="http://www.xml-dom/spazidinomi/meteo/">
     <giorno data="01-12-2023">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
@@ -14,7 +12,6 @@
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
-
     <giorno data="02-12-2023">
         <condizione>Piovoso</condizione>
         <temperatura>17</temperatura>
@@ -27,7 +24,6 @@
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
-
     <giorno data="03-12-2023">
         <condizione>Soleggiato</condizione>
         <temperatura>16</temperatura>
@@ -40,7 +36,6 @@
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
-
     <giorno data="04-12-2023">
         <condizione>Pioggia e schiarite</condizione>
         <temperatura>15</temperatura>
@@ -48,12 +43,11 @@
         <vento velocità="10" direzione="NE" />
         <precipitazioni probabilità="50" intensità="1.0" />
         <luna>
-            <fase>Gibbosa</fase>
+            <fase>Gibbosa crescente</fase>
             <illuminazione>75</illuminazione>
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
-
     <giorno data="05-12-2023">
         <condizione>Temporale</condizione>
         <temperatura>17</temperatura>
@@ -66,7 +60,6 @@
             <tendenza>Calante</tendenza>
         </luna>
     </giorno>
-
     <giorno data="06-12-2023">
         <condizione>Piogge intense</condizione>
         <temperatura>16</temperatura>
@@ -74,12 +67,11 @@
         <vento velocità="10" direzione="NE" />
         <precipitazioni probabilità="88" intensità="5.4" />
         <luna>
-            <fase>Gibbosa</fase>
+            <fase>Gibbosa calante</fase>
             <illuminazione>75</illuminazione>
             <tendenza>Calante</tendenza>
         </luna>
     </giorno>
-
     <giorno data="07-12-2023">
         <condizione>Soleggiato</condizione>
         <temperatura>14</temperatura>
