@@ -5,13 +5,14 @@
         <temperatura>15</temperatura>
         <umidità>70</umidità>
         <vento velocità="30" direzione="E" />
-        <precipitazioni probabilità="30" intensità="0.5"/>
+        <precipitazioni probabilità="30" intensità="0.5" />
         <luna>
             <fase>Nuova luna</fase>
             <illuminazione>0</illuminazione>
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
+
     <giorno data="02-12-2023">
         <condizione>Piovoso</condizione>
         <temperatura>17</temperatura>
@@ -24,10 +25,11 @@
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
+
     <giorno data="03-12-2023">
         <condizione>Soleggiato</condizione>
         <temperatura>16</temperatura>
-        <humidità>65</humidità>
+        <umidità>65</umidità>
         <vento velocità="10" direzione="NE" />
         <precipitazioni probabilità="0" intensità="0" />
         <luna>
@@ -36,10 +38,11 @@
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
+
     <giorno data="04-12-2023">
         <condizione>Pioggia e schiarite</condizione>
         <temperatura>15</temperatura>
-        <humidità>74</humidità>
+        <umidità>74</umidità>
         <vento velocità="10" direzione="NE" />
         <precipitazioni probabilità="50" intensità="1.0" />
         <luna>
@@ -48,10 +51,11 @@
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
+
     <giorno data="05-12-2023">
         <condizione>Temporale</condizione>
         <temperatura>17</temperatura>
-        <humidità>92</humidità>
+        <umidità>92</umidità>
         <vento velocità="10" direzione="NE" />
         <precipitazioni probabilità="90" intensità="10.7" />
         <luna>
@@ -60,10 +64,11 @@
             <tendenza>Calante</tendenza>
         </luna>
     </giorno>
+
     <giorno data="06-12-2023">
         <condizione>Piogge intense</condizione>
         <temperatura>16</temperatura>
-        <humidità>86</humidità>
+        <umidità>86</umidità>
         <vento velocità="10" direzione="NE" />
         <precipitazioni probabilità="88" intensità="5.4" />
         <luna>
@@ -72,10 +77,11 @@
             <tendenza>Calante</tendenza>
         </luna>
     </giorno>
+
     <giorno data="07-12-2023">
         <condizione>Soleggiato</condizione>
         <temperatura>14</temperatura>
-        <humidità>65</humidità>
+        <umidità>65</umidità>
         <vento velocità="10" direzione="NE" />
         <precipitazioni probabilità="5" intensità="0.1" />
         <luna>
@@ -84,5 +90,4 @@
             <tendenza>Calante</tendenza>
         </luna>
     </giorno>
-
 </previsioni>
