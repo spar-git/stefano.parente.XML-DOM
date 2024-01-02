@@ -1,7 +1,7 @@
-<? xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xnlns:wht="http://www.xml-dom.it/spazidinomi/meteo/"
-            targetNamespace="http://www.xml-dom.it/spazidinomi/meteo/">
+            xmlns:wht="http://www.xml-dom/spazidinomi/meteo/"
+            targetNamespace="http://www.xml-dom/spazidinomi/meteo/">
 
 <xsd:element name="previsioni">
    <xsd:complexType> 
@@ -23,19 +23,19 @@
       </xsd:sequence>
       <xsd:attribute name="data" type="xsd:string" use="required">
          <xsd:simpleType>
-         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="\d{2}-\d{2}-\d{4}" />
-         </xsd:restriction>
+            <xsd:restriction base="xsd:string">
+               <xsd:pattern value="\d{2}-\d{2}-\d{4}" />
+            </xsd:restriction>
          </xsd:simpleType>
       </xsd:attribute>
    </xsd:complexType>
 </xsd:element>
 
-<xsd:element name="codizione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+<xsd:element name="condizione" type="xsd:string"/>
 
-<xsd:element name="temperatura" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+<xsd:element name="temperatura" type="xsd:integer"/>
 
-<xsd:element name="umidità" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+<xsd:element name="umidità" type="xsd:integer"/>
 
 <xsd:element name="vento">
     <xsd:complexType>
@@ -85,11 +85,11 @@
   </xsd:restriction>
 </xsd:simpleType>
 
-<xsd:element name="luna" type="wht:lunaType" minOccurs="1" maxOccurs="1" />
+<xsd:element name="luna" type="wht:lunaType"/>
 
 <xsd:complexType name="lunaType">
     <xsd:sequence>
-        <xsd:element name="fase" type="wht:faseType" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="fase" type="wht:faseType" minOccurs="1" maxOccurs="1"/>
         <xsd:element name="illuminazione" type="wht:illuminazioneType" minOccurs="1" maxOccurs="1" />
         <xsd:element name="tendenza" type="wht:tendenzaType" minOccurs="1" maxOccurs="1" />
     </xsd:sequence>
@@ -107,7 +107,7 @@
         <xsd:enumeration value="Ultimo calante" />
     </xsd:restriction>
    </xsd:complexType>
-
+   
    <xsd:complexType name="illuminazioneType">
       <xsd:restriction base="xsd:int">
          <xsd:enumeration value="0" />
@@ -124,9 +124,3 @@
       <xsd:enumeration value="Calante" /> 
    </xsd:restriction>
 </xsd:complexType>
-
-
-
-
-
-
