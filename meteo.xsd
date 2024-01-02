@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:wht="http://www.xml-dom/spazidinomi/meteo/"
+            xmlns:wth="http://www.xml-dom/spazidinomi/meteo/"
             targetNamespace="http://www.xml-dom/spazidinomi/meteo/">
 
 <xsd:element name="previsioni">
@@ -14,20 +14,14 @@
 <xsd:element name="giorno">
    <xsd:complexType>
       <xsd:sequence>
-         <xsd:element ref="wht:condizione" minOccurs="1" maxOccurs="1" />
-         <xsd:element ref="wht:temperatura" minOccurs="1" maxOccurs="1"/>
-         <xsd:element ref="wht:umidità" minOccurs="1" maxOccurs="1" />
-         <xsd:element ref="wht:vento" minOccurs="1" maxOccurs="1" />
-         <xsd:element ref="wht:precipitazioni" minOccurs="1" maxOccurs="1" />
-         <xsd:element ref="wht:luna" minOccurs="1" maxOccurs="1"/>
+         <xsd:element ref="wth:condizione" />
+         <xsd:element ref="wth:temperatura" />
+         <xsd:element ref="wth:umidità" />
+         <xsd:element ref="wth:vento" />
+         <xsd:element ref="wth:precipitazioni" />
+         <xsd:element ref="wth:luna" />
       </xsd:sequence>
-      <xsd:attribute name="data" type="xsd:string" use="required">
-         <xsd:simpleType>
-            <xsd:restriction base="xsd:string">
-               <xsd:pattern value="\d{2}-\d{2}-\d{4}" />
-            </xsd:restriction>
-         </xsd:simpleType>
-      </xsd:attribute>
+      <xsd:attribute name="data" type="xsd:string" use="required"/> 
    </xsd:complexType>
 </xsd:element>
 
@@ -39,13 +33,13 @@
 
 <xsd:element name="vento">
     <xsd:complexType>
-        <xsd:attribute name="velocità" type="wht:velocityType" use="required" />
-        <xsd:attribute name="direzione" type="wht:directionType" use="optional" />
+        <xsd:attribute name="velocità" type="wth:velocityType" use="required" />
+        <xsd:attribute name="direzione" type="wth:directionType" use="optional" />
     </xsd:complexType>
 </xsd:element>
 
 <xsd:simpleType name="velocityType">
-    <xsd:restriction base="xsd:int">
+    <xsd:restriction base="xsd:integer">
         <xsd:minInclusive value="1" />
         <xsd:maxInclusive value="100" />
     </xsd:restriction>
@@ -67,8 +61,9 @@
 <xsd:element name="precipitazioni">
    <xsd:complexType>
       <xsd:sequence>
-         <xsd:attribute name="probabilità" type="wht:probabilityType" use="required" />
-         <xsd:attribute name="intensità" type="wht:intensityType" use="optional" />      </xsd:sequence>
+         <xsd:attribute name="probabilità" type="wth:probabilityType" use="required" />
+         <xsd:attribute name="intensità" type="wth:intensityType" use="optional" />      
+      </xsd:sequence>
    </xsd:complexType>
 </xsd:element>
 
@@ -85,13 +80,13 @@
   </xsd:restriction>
 </xsd:simpleType>
 
-<xsd:element name="luna" type="wht:lunaType"/>
+<xsd:element name="luna" type="wth:lunaType"/>
 
 <xsd:complexType name="lunaType">
     <xsd:sequence>
-        <xsd:element name="fase" type="wht:faseType" minOccurs="1" maxOccurs="1"/>
-        <xsd:element name="illuminazione" type="wht:illuminazioneType" minOccurs="1" maxOccurs="1" />
-        <xsd:element name="tendenza" type="wht:tendenzaType" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="fase" type="wth:faseType" />
+        <xsd:element name="illuminazione" type="wth:illuminazioneType" />
+        <xsd:element name="tendenza" type="wth:tendenzaType" />
     </xsd:sequence>
 </xsd:complexType>
 
@@ -109,7 +104,7 @@
    </xsd:complexType>
    
    <xsd:complexType name="illuminazioneType">
-      <xsd:restriction base="xsd:int">
+      <xsd:restriction base="xsd:integer">
          <xsd:enumeration value="0" />
          <xsd:enumeration value="25" />
          <xsd:enumeration value="50" />
@@ -124,3 +119,5 @@
       <xsd:enumeration value="Calante" /> 
    </xsd:restriction>
 </xsd:complexType>
+
+</xsd:schema>
