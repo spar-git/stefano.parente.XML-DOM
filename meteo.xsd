@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:wth="http://www.xml-dom/spazidinomi/meteo/"
-            targetNamespace="http://www.xml-dom/spazidinomi/meteo/">
+            xmlns:wth="http://www.xmldom.it/spazidinomi/meteo/"
+            targetNamespace="http://www.xmldom.it/spazidinomi/meteo/">
 
 <xsd:element name="previsioni">
    <xsd:complexType> 
@@ -16,24 +16,55 @@
       <xsd:sequence>
          <xsd:element ref="wth:condizione" />
          <xsd:element ref="wth:temperatura" />
-         <xsd:element ref="wth:umidità" />
+         <xsd:element ref="wth:umidita" />
          <xsd:element ref="wth:vento" />
          <xsd:element ref="wth:precipitazioni" />
          <xsd:element ref="wth:luna" />
       </xsd:sequence>
-      <xsd:attribute name="data" type="xsd:string" use="required"/> 
+      <xsd:attribute name="data">
+         <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+               <xsd:pattern value="\d{2}-\d{2}-\d{4}" />
+            </xsd:restriction>
+         </xsd:simpleType>
+      </xsd:attribute>
    </xsd:complexType>
 </xsd:element>
 
-<xsd:element name="condizione" type="xsd:string"/>
+<xsd:element name="condizione" >
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+         <xsd:enumeration value="Soleggiato" />
+         <xsd:enumeration value="Parzialmente nuvoloso" />
+         <xsd:enumeration value="Pioggia e schiarite" />
+         <xsd:enumeration value="Pioggia" />
+         <xsd:enumeration value="Temporale" />
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:element>
 
-<xsd:element name="temperatura" type="xsd:integer"/>
+<xsd:element name="temperatura">
+   <xsd:simpleType>
+      <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="-90" />
+         <xsd:maxInclusive value="60" />  
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:element>
 
-<xsd:element name="umidità" type="xsd:integer"/>
+
+<xsd:element name="umidita">
+   <xsd:simpleType>
+      <xsd:restriction base="xsd:integer">
+          <xsd:minInclusive value="0" />
+         <xsd:maxInclusive value="100" />  
+      </xsd:restriction>
+   </xsd:simpleType>
+</xsd:element>
 
 <xsd:element name="vento">
     <xsd:complexType>
-        <xsd:attribute name="velocità" type="wth:velocityType" use="required" />
+        <xsd:attribute name="velocita" type="wth:velocityType" use="required" />
         <xsd:attribute name="direzione" type="wth:directionType" use="optional" />
     </xsd:complexType>
 </xsd:element>
@@ -60,10 +91,8 @@
 
 <xsd:element name="precipitazioni">
    <xsd:complexType>
-      <xsd:sequence>
-         <xsd:attribute name="probabilità" type="wth:probabilityType" use="required" />
-         <xsd:attribute name="intensità" type="wth:intensityType" use="optional" />      
-      </xsd:sequence>
+         <xsd:attribute name="probabilita" type="wth:probabilityType" use="required" />
+         <xsd:attribute name="intensita" type="wth:intensityType" use="optional" />      
    </xsd:complexType>
 </xsd:element>
 
@@ -84,13 +113,17 @@
 
 <xsd:complexType name="lunaType">
     <xsd:sequence>
-        <xsd:element name="fase" type="wth:faseType" />
-        <xsd:element name="illuminazione" type="wth:illuminazioneType" />
-        <xsd:element name="tendenza" type="wth:tendenzaType" />
+        <xsd:element ref="wth:fase" />
+        <xsd:element ref="wth:illuminazione" />
+        <xsd:element ref="wth:tendenza" />
     </xsd:sequence>
 </xsd:complexType>
 
-<xsd:complexType name="faseType">
+<xsd:element name="fase" />
+<xsd:element name="illuminazione" />
+<xsd:element name="tendenza" />
+
+<xsd:simpleType name="fase">
     <xsd:restriction base="xsd:string">
         <xsd:enumeration value="Nuova luna" />
         <xsd:enumeration value="Primo crescente" />
@@ -101,9 +134,9 @@
         <xsd:enumeration value="Ultimo quarto" />
         <xsd:enumeration value="Ultimo calante" />
     </xsd:restriction>
-   </xsd:complexType>
+   </xsd:simpleType>
    
-   <xsd:complexType name="illuminazioneType">
+   <xsd:simpleType name="illuminazione">
       <xsd:restriction base="xsd:integer">
          <xsd:enumeration value="0" />
          <xsd:enumeration value="25" />
@@ -111,13 +144,13 @@
          <xsd:enumeration value="75" /> 
          <xsd:enumeration value="100" />
       </xsd:restriction>
-</xsd:complexType>
+</xsd:simpleType>
 
-<xsd:complexType name="tendenzaType">
+<xsd:simpleType name="tendenza">
    <xsd:restriction base="xsd:string">
       <xsd:enumeration value="Crescente" />
       <xsd:enumeration value="Calante" /> 
    </xsd:restriction>
-</xsd:complexType>
+</xsd:simpleType>
 
 </xsd:schema>
