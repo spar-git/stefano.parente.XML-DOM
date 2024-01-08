@@ -17,9 +17,15 @@ img {
   }
 
 .town {
+    font-size: 3em;
     position: absolute;
     bottom: 0;
     left: 50;
+    font-family: Arial, sans-serif; 
+    color: white; 
+    padding: 10px; 
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: blue;
 }
 
 .date-table {
@@ -31,6 +37,8 @@ img {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
+    font-weight: bold;
+    font-family: Arial, sans-serif; 
 }
   
 .date-table td:hover {
@@ -41,7 +49,11 @@ img {
     width: calc((100% - 60px) / 7); 
     text-align: center;
     border: 1px solid #ccc;
-    padding: 5px;
-    
+    padding: 5px; 
 }
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+  }
   
