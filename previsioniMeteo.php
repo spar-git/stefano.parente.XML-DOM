@@ -12,6 +12,9 @@ if ($doc->schemaValidate("meteo.xsd")) {
 } else {
     echo "<p>Errore: Il documento XML non è valido secondo lo schema.</p>\n";
 }
+$root = $doc->documentElement;
+$elements = $root->childNodes;
+$total_elements = $elements->length;
 ?>
 
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -28,26 +31,25 @@ if ($doc->schemaValidate("meteo.xsd")) {
 
     <div class="town-container">
     <img src="solegg.jpg" alt="Soleggiato">
-        <h1 class="town">METEO Latina</p>
+        <p class="town">METEO Latina</p>
     </div>
 
 <table class="date-table">
   <tr>
-    <td>1 gennaio</td>
-    <td>2 gennaio</td>
-    <td>3 gennaio</td>
-    <td>4 gennaio</td>
-    <td>5 gennaio</td>
-    <td>6 gennaio</td>
-    <td>7 gennaio</td>
+    <?php for ($i=($total_elements-7); $i<$total_elements; $i++) {
+    echo "<td>";
+        $giorno = $root->getElementsByTagName('giorno')->item($i);
+        $data = $giorno->getAttribute('data');
+        echo "<a href=\"previsioniMeteo.php?elem=$i\">$data</a>";
+    echo "</td>";
+    } ?>
   </tr>
 </table>
 
     <div class="box3">
     <?php
-    $root = $doc->documentElement;
-    $elementi = $root->childNodes;
-    $giorno = $root->getElementsByTagName('giorno')->item(0);
+
+    
     $data = $giorno->getAttribute('data');
     echo "<h2>Previsioni per il giorno $data</h2>";
     $condizione = $giorno->getElementsByTagName('condizione')->item(0)->nodeValue;
