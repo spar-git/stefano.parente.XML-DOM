@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <previsioni xmlns="http://www.xmldom.it/spazidinomi/meteo/">
     <giorno data="01-02-2024">
-        <condizione>Parzialmente nuvoloso</condizione>
-        <temperatura>15</temperatura>
-        <umidita>70</umidita>
-        <vento velocita="100" direzione="E" />
-        <precipitazioni probabilita="30" intensita="0.5" />
+        <condizione>Soleggiato</condizione>
+        <temperatura>18</temperatura>
+        <umidita>50</umidita>
+        <vento velocita="10" direzione="E" />
+        <precipitazioni probabilita="0" intensita="0.0" />
         <luna>
             <fase>Nuova luna</fase>
             <illuminazione>0</illuminazione>
@@ -15,79 +15,79 @@
 
     <giorno data="02-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
-        <temperatura>15</temperatura>
-        <umidita>70</umidita>
-        <vento velocita="100" direzione="E" />
-        <precipitazioni probabilita="30" intensita="0.5" />
+        <temperatura>16</temperatura>
+        <umidita>59</umidita>
+        <vento velocita="16" direzione="NE" />
+        <precipitazioni probabilita="20" intensita="0.5" />
         <luna>
-            <fase>Nuova luna</fase>
-            <illuminazione>0</illuminazione>
+            <fase>Primo crescente</fase>
+            <illuminazione>25</illuminazione>
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
 
     <giorno data="03-02-2024">
-        <condizione>Parzialmente nuvoloso</condizione>
+        <condizione>Pioggia</condizione>
         <temperatura>15</temperatura>
-        <umidita>70</umidita>
-        <vento velocita="100" direzione="E" />
-        <precipitazioni probabilita="30" intensita="0.5" />
+        <umidita>82</umidita>
+        <vento velocita="18" direzione="NE" />
+        <precipitazioni probabilita="60" intensita="1.0" />
         <luna>
-            <fase>Nuova luna</fase>
-            <illuminazione>0</illuminazione>
+            <fase>Primo Quarto</fase>
+            <illuminazione>50</illuminazione>
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
 
     <giorno data="04-02-2024">
-        <condizione>Parzialmente nuvoloso</condizione>
-        <temperatura>15</temperatura>
-        <umidita>70</umidita>
-        <vento velocita="100" direzione="E" />
-        <precipitazioni probabilita="30" intensita="0.5" />
+        <condizione>Temporale</condizione>
+        <temperatura>13</temperatura>
+        <umidita>88</umidita>
+        <vento velocita="25" direzione="N" />
+        <precipitazioni probabilita="80" intensita="5.6" />
         <luna>
-            <fase>Nuova luna</fase>
-            <illuminazione>0</illuminazione>
+            <fase>Gibbosa crescente</fase>
+            <illuminazione>75</illuminazione>
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
 
     <giorno data="05-02-2024">
-        <condizione>Parzialmente nuvoloso</condizione>
-        <temperatura>15</temperatura>
-        <umidita>70</umidita>
-        <vento velocita="100" direzione="E" />
-        <precipitazioni probabilita="30" intensita="0.5" />
+        <condizione>Pioggia e schiarite</condizione>
+        <temperatura>14</temperatura>
+        <umidita>73</umidita>
+        <vento velocita="28" direzione="NW" />
+        <precipitazioni probabilita="43" intensita="2.4" />
         <luna>
-            <fase>Nuova luna</fase>
-            <illuminazione>0</illuminazione>
+            <fase>Luna piena</fase>
+            <illuminazione>100</illuminazione>
             <tendenza>Crescente</tendenza>
         </luna>
     </giorno>
 
     <giorno data="06-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
-        <temperatura>15</temperatura>
+        <temperatura>10</temperatura>
         <umidita>70</umidita>
-        <vento velocita="100" direzione="E" />
-        <precipitazioni probabilita="30" intensita="0.5" />
+        <vento velocita="17" direzione="W" />
+        <precipitazioni probabilita="30" intensita="0.2" />
         <luna>
-            <fase>Nuova luna</fase>
-            <illuminazione>0</illuminazione>
-            <tendenza>Crescente</tendenza>
+            <fase>Gibbosa calante</fase>
+            <illuminazione>75</illuminazione>
+            <tendenza>Decrescente</tendenza>
         </luna>
     </giorno>
 
     <giorno data="07-02-2024">
-        <condizione>Parzialmente nuvoloso</condizione>
-        <temperatura>15</temperatura>
-        <umidita>70</umidita>
-        <vento velocita="100" direzione="E" />
-        <precipitazioni probabilita="30" intensita="0.5" />
+        <condizione>Soleggiato</condizione>
+        <temperatura>17</temperatura>
+        <umidita>62</umidita>
+        <vento velocita="14" direzione="S" />
+        <precipitazioni probabilita="0" intensita="0.0" />
         <luna>
-            <fase>Nuova luna</fase>
-            <illuminazione>0</illuminazione>
-            <tendenza>Crescente</tendenza>
+            <fase>Ultimo calante</fase>
+            <illuminazione>50</illuminazione>
+            <tendenza>Decrescente</tendenza>
         </luna>
     </giorno>
 
