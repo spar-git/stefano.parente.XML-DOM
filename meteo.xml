@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <previsioni xmlns="http://www.xmldom.it/spazidinomi/meteo/">
-    <giorno data="01-12-2023">
+    <giorno data="01-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
         <umidita>70</umidita>
@@ -13,7 +13,7 @@
         </luna>
     </giorno>
 
-    <giorno data="02-12-2023">
+    <giorno data="02-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
         <umidita>70</umidita>
@@ -26,7 +26,7 @@
         </luna>
     </giorno>
 
-    <giorno data="03-12-2023">
+    <giorno data="03-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
         <umidita>70</umidita>
@@ -39,7 +39,7 @@
         </luna>
     </giorno>
 
-    <giorno data="04-12-2023">
+    <giorno data="04-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
         <umidita>70</umidita>
@@ -52,7 +52,7 @@
         </luna>
     </giorno>
 
-    <giorno data="05-12-2023">
+    <giorno data="05-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
         <umidita>70</umidita>
@@ -65,7 +65,7 @@
         </luna>
     </giorno>
 
-    <giorno data="06-12-2023">
+    <giorno data="06-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
         <umidita>70</umidita>
@@ -78,7 +78,7 @@
         </luna>
     </giorno>
 
-    <giorno data="07-12-2023">
+    <giorno data="07-02-2024">
         <condizione>Parzialmente nuvoloso</condizione>
         <temperatura>15</temperatura>
         <umidita>70</umidita>
