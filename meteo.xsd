@@ -131,7 +131,6 @@
         <xsd:enumeration value="Gibbosa crescente" /> 
         <xsd:enumeration value="Luna piena" />
         <xsd:enumeration value="Gibbosa calante" />
-        <xsd:enumeration value="Ultimo quarto" />
         <xsd:enumeration value="Ultimo calante" />
     </xsd:restriction>
    </xsd:simpleType>
