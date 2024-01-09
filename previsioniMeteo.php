@@ -21,23 +21,23 @@ if (isset($_GET['elem']))
 $giorno = $root->getElementsByTagName('giorno')->item($current_item);
 $condizione = $giorno->getElementsByTagName('condizione')->item(0)->nodeValue;
 if ($condizione == 'Soleggiato'){
-    $img_src= "solegg.jpg";
+    $img_src= "img/solegg.jpg";
     $img_alt= "Soleggiato";
 }
 if ($condizione == 'Parzialmente nuvoloso'){
-    $img_src= "parz_nuvol.jpg";
+    $img_src= "img/parz_nuvol.jpg";
     $img_alt= "Parzialmente nuvoloso";
 }
 if ($condizione == 'Pioggia e schiarite'){
-    $img_src= "piog_schiar.jpg";
+    $img_src= "img/piog_schiar.jpg";
     $img_alt= "Pioggia e schiarite";
 }
 if ($condizione == 'Pioggia'){
-    $img_src= "piogg.jpg";
+    $img_src= "img/piogg.jpg";
     $img_alt= "Pioggia";
 }
 if ($condizione == 'Temporale'){
-    $img_src= "tempor.jpg";
+    $img_src= "img/tempor.jpg";
     $img_alt= "Temporale";
 }
 
@@ -55,9 +55,10 @@ if ($condizione == 'Temporale'){
 
 <body>
 
-    <div class="town-container">
+    <div class="top-container">
     <?php echo "<img src=\"$img_src\" alt=\"img_alt\">"; ?>
         <p class="town">METEO Latina</p>
+        <a href="admin_login.php" class="button-admin">Area riservata</a>
     </div>
 
 <table class="date-table">
