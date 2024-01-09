@@ -4,12 +4,24 @@ body {
 }
 
 /* stili per l'immagine di intestazione ed il nome della città*/
-.town-container {
+.top-container {
     display: flex;
     justify-content: space-between;
     border: 1px solid #ccc;
     height: 400px;
     position: relative;
+}
+.button-admin {
+    position: absolute;
+    top: 10px; 
+    right: 10px;
+    background-color: #858585; 
+    padding: 10px 15px;
+    color: white;
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
 img {
     width: 100%;
@@ -66,7 +78,7 @@ a {
     text-align: left;
     width: 30%; 
     display: inline-block;
-    background-color: rgb(241, 241, 241);
+    background-color:  #e4e4e4;
 }
 .raws-white div {
     border: 1px solid #ccc;
