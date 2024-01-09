@@ -75,34 +75,85 @@ if ($condizione == 'Temporale'){
   </tr>
 </table>
 
-    <div class="box3">
+<div class="raws-box">
     <?php
 
     $giorno = $root->getElementsByTagName('giorno')->item($current_item);
     $data = $giorno->getAttribute('data');
-    echo "<h2>Previsioni per il giorno $data</h2>";
+    
     $condizione = $giorno->getElementsByTagName('condizione')->item(0)->nodeValue;
+
     $temperatura = $giorno->getElementsByTagName('temperatura')->item(0)->nodeValue;
+
     $umidita = $giorno->getElementsByTagName('umidita')->item(0)->nodeValue;
-    echo "<p>Condizione: $condizione</p>";
-    echo "<p>Temperatura: $temperatura °C</p>";
-    echo "<p>Umidità: $umidita%</p>";
+
     $vento = $giorno->getElementsByTagName('vento')->item(0);
     $velocitaVento = $vento->getAttribute('velocita');
     $direzioneVento = $vento->getAttribute('direzione');
-    echo "<p>Vento: $velocitaVento km/h, Direzione: $direzioneVento</p>";
+
     $precipitazioni = $giorno->getElementsByTagName('precipitazioni')->item(0);
     $probabilitaPrecipitazioni = $precipitazioni->getAttribute('probabilita');
     $intensitaPrecipitazioni = $precipitazioni->getAttribute('intensita');
-    echo "<p>Precipitazioni: Probabilità $probabilitaPrecipitazioni%, Intensità $intensitaPrecipitazioni mm</p>";
+
     $luna = $giorno->getElementsByTagName('luna')->item(0);
     $faseLuna = $luna->getElementsByTagName('fase')->item(0)->nodeValue;
     $illuminazioneLuna = $luna->getElementsByTagName('illuminazione')->item(0)->nodeValue;
     $tendenzaLuna = $luna->getElementsByTagName('tendenza')->item(0)->nodeValue;
-    echo "<p>Luna: Fase $faseLuna, Illuminazione $illuminazioneLuna%, Tendenza $tendenzaLuna</p>";
+
+    echo "<h2>Previsioni per il giorno $data</h2>";
+    // prima riga 
+    echo "<div class=\"raws-grey\">";
+    echo "<div style=\"padding: 20px;\">Condizione:</div>";
+    echo "<div style=\"padding: 20px;\">$condizione</div>";
+    echo "</div>";
+    //seconda riga 
+    echo "<div class=\"raws-white\">";
+    echo "<div style=\"padding: 20px;\">Temperatura:</div>";
+    echo "<div style=\"padding: 20px;\">$temperatura °C</div>";
+    echo "</div>";
+    //terza riga
+    echo "<div class=\"raws-grey\">";
+    echo "<div style=\"padding: 20px;\">Umidità:</div>";
+    echo "<div style=\"padding: 20px;\">$umidita%</div>";
+    echo "</div>";
+    //quarta riga
+    echo "<div class=\"raws-white\">";
+    echo "<div style=\"padding: 20px;\">Velocità vento:</div>";
+    echo "<div style=\"padding: 20px;\">$velocitaVento km/h</div>";
+    echo "</div>";
+    //quinta riga
+    echo "<div class=\"raws-grey\">";
+    echo "<div style=\"padding: 20px;\">Direzione vento:</div>";
+    echo "<div style=\"padding: 20px;\">$direzioneVento</div>";
+    echo "</div>";
+    //sesta riga
+    echo "<div class=\"raws-white\">";
+    echo "<div style=\"padding: 20px;\">Probabilità pecipitazioni:</div>";
+    echo "<div style=\"padding: 20px;\">$probabilitaPrecipitazioni%</div>";
+    echo "</div>";
+    //settima riga
+    echo "<div class=\"raws-grey\">";
+    echo "<div style=\"padding: 20px;\">Intensità precipitazioni:</div>";
+    echo "<div style=\"padding: 20px;\">$intensitaPrecipitazioni mm</div>";
+    echo "</div>";
+    //ottava riga
+    echo "<div class=\"raws-white\">";
+    echo "<div style=\"padding: 20px;\">Fase lunare:</div>";
+    echo "<div style=\"padding: 20px;\">$faseLuna</div>";
+    echo "</div>";
+    //nona riga
+    echo "<div class=\"raws-grey\">";
+    echo "<div style=\"padding: 20px;\">Illuminazione lunare:</div>";
+    echo "<div style=\"padding: 20px;\">$illuminazioneLuna%</div>";
+    echo "</div>";
+    //decima riga
+    echo "<div class=\"raws-white\">";
+    echo "<div style=\"padding: 20px;\">Tendenza lunare:</div>";
+    echo "<div style=\"padding: 20px;\">$tendenzaLuna</div>";
+    echo "</div>";
 
     ?>
-    </div>
+</div>
 
 </body> 
 </html>
