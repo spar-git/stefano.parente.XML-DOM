@@ -1,12 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
+    margin-top: 100px;
     padding: 0;
     align-items: center;
-    display: flex;
     justify-content: center;
-    height: 100vh;
 }
 
 .container {
@@ -25,12 +23,6 @@ form {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: inline-block; 
     text-align: left; 
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
 }
 
 input {
@@ -53,4 +45,19 @@ button {
 
 button:hover {
     background-color: #272727;
+}
+
+.error-message {
+    text-align: center;
+    color: red;
+    margin-top: 10px; 
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
