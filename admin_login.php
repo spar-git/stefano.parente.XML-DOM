@@ -24,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>Area riservata</title>
+    <title>Login area riservata</title>
     <link rel="stylesheet" href="stili_login.css">
 </head>
 <body>
     <div class="container">
         <h2>Accesso Amministratore</h2>
-        <form method="post" action="">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <p>Nome utente:</p>
             <input type="text" id="username" name="username" required>
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <?php
         if (isset($error_message)) {
-            echo '<div><p style="color: red;">' . $error_message . '</p></div>';
+            echo '<p class="error-message">' . $error_message . '</p>';        
         }
     ?>
 </body>
