@@ -76,7 +76,7 @@ if ($condizione == 'Temporale'){
   </tr>
 </table>
 
-<div class="raws-box">
+<div class="raws-container">
     <?php
 
     $giorno = $root->getElementsByTagName('giorno')->item($current_item);
