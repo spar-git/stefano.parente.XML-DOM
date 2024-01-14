@@ -29,15 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h2>Accesso Amministratore</h2>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <form class="login" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <h2 style="text-align:center;">Accesso Amministratore</h2>
             <p>Nome utente:</p>
             <input type="text" id="username" name="username" required>
 
             <p>Password:</p>
             <input type="password" id="password" name="password" required>
 
-            <button type="submit">Accedi</button>
+            <p><button type="submit">Accedi</button></p>
         </form>
     </div>
     <?php
