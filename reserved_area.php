@@ -1,4 +1,6 @@
 <?php
+$message="";
+
 $xmlString = "";
 foreach ( file("meteo.xml") as $node ) {
 	$xmlString .= trim($node);
@@ -16,50 +18,64 @@ if (!$doc->schemaValidate("meteo.xsd")) {
 $root = $doc->documentElement;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $data = $_POST["data"];
-    $condizione = $_POST["condizione"];
-    $temperatura = $_POST["temperatura"];
-    $umidita = $_POST["umidita"];
-    $velocita = $_POST["velocita"];
-    $direzione = $_POST["direzione"];
-    $probabilita = $_POST["probabilita"];
-    $intensita = $_POST["intensita"];
-    $fase = $_POST["fase"];
-    $illuminazione = $_POST["illuminazione"];
-    $tendenza = $_POST["tendenza"];
+    if (isset($_POST['invia'])) {
+        $data = $_POST["data"];
+        $condizione = $_POST["condizione"];
+        $temperatura = $_POST["temperatura"];
+        $umidita = $_POST["umidita"];
+        $velocita = $_POST["velocita"];
+        $direzione = $_POST["direzione"];
+        $probabilita = $_POST["probabilita"];
+        $intensita = $_POST["intensita"];
+        $fase = $_POST["fase"];
+        $illuminazione = $_POST["illuminazione"];
+        $tendenza = $_POST["tendenza"];
 
-    $newGiorno= $doc->createElement("giorno");
-    $newGiorno->setAttribute("data", "$data");
+        $newGiorno= $doc->createElement("giorno");
+        $newGiorno->setAttribute("data", "$data");
 
-    $newCondizione = $doc->createElement("condizione", "$condizione");
-    $newTemperatura = $doc->createElement("temperatura", "$temperatura");
-    $newUmidita = $doc->createElement("umidita", "$umidita");
-    $newVento= $doc->createElement("vento");
-    $newVento->setAttribute("velocita", "$velocita");
-    $newVento->setAttribute("direzione", "$direzione");
-    $newPrecipitazioni = $doc->createElement("precipitazioni");
-    $newPrecipitazioni->setAttribute("probabilita", "$probabilita");
-    $newPrecipitazioni->setAttribute("intensita", "$intensita");
-    $newLuna = $doc->createElement("luna");
-    $newFase = $doc->createElement("fase", "$fase");
-    $newIlluminazione = $doc->createElement("illuminazione", "$illuminazione");
-    $newTendenza = $doc->createElement("tendenza", "$tendenza");
-    
-    $newLuna->appendChild($newFase);
-    $newLuna->appendChild($newIlluminazione);
-    $newLuna->appendChild($newTendenza);
+        $newCondizione = $doc->createElement("condizione", "$condizione");
+        $newTemperatura = $doc->createElement("temperatura", "$temperatura");
+        $newUmidita = $doc->createElement("umidita", "$umidita");
+        $newVento= $doc->createElement("vento");
+        $newVento->setAttribute("velocita", "$velocita");
+        $newVento->setAttribute("direzione", "$direzione");
+        $newPrecipitazioni = $doc->createElement("precipitazioni");
+        $newPrecipitazioni->setAttribute("probabilita", "$probabilita");
+        $newPrecipitazioni->setAttribute("intensita", "$intensita");
+        $newLuna = $doc->createElement("luna");
+        $newFase = $doc->createElement("fase", "$fase");
+        $newIlluminazione = $doc->createElement("illuminazione", "$illuminazione");
+        $newTendenza = $doc->createElement("tendenza", "$tendenza");
+        
+        $newLuna->appendChild($newFase);
+        $newLuna->appendChild($newIlluminazione);
+        $newLuna->appendChild($newTendenza);
 
-    $newGiorno->appendChild($newCondizione);
-    $newGiorno->appendChild($newTemperatura);
-    $newGiorno->appendChild($newUmidita);
-    $newGiorno->appendChild($newVento);
-    $newGiorno->appendChild($newPrecipitazioni);
-    $newGiorno->appendChild($newLuna);
+        $newGiorno->appendChild($newCondizione);
+        $newGiorno->appendChild($newTemperatura);
+        $newGiorno->appendChild($newUmidita);
+        $newGiorno->appendChild($newVento);
+        $newGiorno->appendChild($newPrecipitazioni);
+        $newGiorno->appendChild($newLuna);
 
-    $root->appendChild($newGiorno);
+        $root->appendChild($newGiorno);
 
-    $path=dirname(__FILE__) . "/meteo.xml";
-    $doc->save($path);  
+        $path=dirname(__FILE__) . "/meteo.xml";
+        $doc->save($path);  
+
+        $message="Le previsioni per il giorno " . $data . "<br>sono state caricate correttamente nel doc XML";
+    }
+    if (isset($_POST['elimina'])) {
+        $ultimo = $root->lastChild;
+        $root->removeChild($ultimo);
+
+        $path=dirname(__FILE__) . "/meteo.xml";
+        $doc->save($path);  
+
+        $message="Eliminazione avvenuta con successo!";
+
+    }
 }
 
 
@@ -75,10 +91,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="stili_login.css">
 </head>
 <body>
+<a href="previsioniMeteo.php">Torna alle previsioni meteo</a>
 
 <div class="container">
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-
+    <?php 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['invia'])) {
+                echo '<h4 style="color:green; text-align: center;">' . $message . '</h4>';
+                unset($_POST);
+            }
+        }
+    ?>
+    <form class="reserved-area" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <h2 style>Inserisci previsioni meteo</h2>
     <p>Data (gg-mm-aaaa):</p>
     <input type="text" id="data" name="data" pattern="\d{2}-\d{2}-\d{4}" required>
 
@@ -130,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </select> 
 
     <p>Illuminazione lunare (%):</p>
-    <input type="number" id="illuminazione" name="illuminazione" min="0" max="100" required>
+    <input type="number" id="illuminazione" name="illuminazione" min="0" max="100" step="25" required>
 
     <p>Tendenza lunare:</p>
     <select id="tendenza" name="tendenza" required>
@@ -139,9 +164,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </select> 
 
 
-    <button type="submit">Invia</button>
+    <button type="submit" name="invia">Invia</button>
 
     </form>
 </div>
+
+<div class="container">
+    <?php 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['elimina'])) {
+                echo '<h4 style="color:green; text-align: center;">' . $message . '</h4>';
+                unset($_POST);
+            }
+        }
+    ?>
+    <form class="reserved-area" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <h2 style>Elimina ultima previsione meteo</h2>
+        <p>Ultima data:</p>
+        <input type="text" id="data" name="data" pattern="\d{2}-\d{2}-\d{4}" required readonly value="<?php $ultimo = $root->lastChild; $attributoData = $ultimo->getAttribute("data"); echo $attributoData?>">
+        <?php 
+        $elements = $root->childNodes;
+        $total_elements = $elements->length;
+        if ($total_elements<=7)
+            echo '<p style="color:red;">Devi aggiungere dei giorni prima di poterli eliminare <br>(numero di giorni minimo = 7)</p>';
+        else
+            echo '<button type="submit" name="elimina">Elimina</button>';
+        ?>
+    </form>
+</div>
+
 </body>
 </html>
