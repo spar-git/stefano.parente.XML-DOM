@@ -1,6 +1,10 @@
 body {
-    margin: 20px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     font-family: Arial, sans-serif; 
+    background-color: #f4f4f4;
 }
 
 /* stili per l'immagine di intestazione ed il nome della città*/
@@ -11,6 +15,7 @@ body {
     height: 400px;
     position: relative;
 }
+
 .button-admin {
     position: absolute;
     top: 10px; 
@@ -42,6 +47,7 @@ img {
 
 /* stili per il menù delle date */
 .date-table {
+    background-color: #ffffff;
     width: 100%;
     border-collapse: collapse;
   }
@@ -67,7 +73,8 @@ a {
 }
 
 /* stili per i dati delle previsioni meteo */
-.raws-box {
+.raws-container {
+    background-color: #ffffff;
     border: 1px solid #ccc;
     padding: 20px; 
     text-align: center;
@@ -78,7 +85,7 @@ a {
     text-align: left;
     width: 30%; 
     display: inline-block;
-    background-color:  #e4e4e4;
+    background-color:  #f4f4f4;;
 }
 .raws-white div {
     border: 1px solid #ccc;
