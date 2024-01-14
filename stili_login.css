@@ -1,22 +1,37 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     padding: 0;
-    align-items: center;
     justify-content: center;
+    display:flex;
+    flex-wrap: wrap;
+    
 }
 
 .container {
     text-align: center;
+    margin: 10px;
 }
+
 
 h2 {
     color: #333;
 }
 
-form {
-    max-width: 300px;
+.login {
+    width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block; 
+    text-align: left; 
+}
+
+.reserved-area {
+    width: 500px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
