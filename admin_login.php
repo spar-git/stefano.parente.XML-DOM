@@ -1,4 +1,8 @@
 <?php
+
+session_start(); 
+$_SESSION['accesso_consentito'] = false;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -8,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $desiredPassword = 'pass123';
 
     if ($username === $desiredUsername && $password === $desiredPassword) {
-        // Credenziali corrette, reindirizza alla pagina "reserved_area"
+        $_SESSION['accesso_consentito'] = true;
         header("Location: reserved_area.php");
         exit();
     } else {
@@ -28,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="stili_login.css">
 </head>
 <body>
+<div>
+    <a href="previsioniMeteo.php"><img src="img/back.png" alt="Back"></a>
+</div>
     <div class="container">
         <form class="login" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <h2 style="text-align:center;">Accesso Amministratore</h2>
