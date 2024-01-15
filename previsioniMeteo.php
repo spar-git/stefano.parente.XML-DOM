@@ -1,23 +1,33 @@
 <?php
+//necessario per impedire l'accesso all'area riservata attraverso l'url
+session_start(); 
+$_SESSION['accesso_consentito'] = false;
+
 $xmlString = "";
+// Itera attraverso ogni riga del file "meteo.xml" rimuovendo spazi vuoti
 foreach ( file("meteo.xml") as $node ) {
 	$xmlString .= trim($node);
 }
 
+//Crea un nuovo oggetto DOMDocument e carica il contenuto XML nella DOMDocument
 $doc = new DOMDocument();
 $doc->loadXML($xmlString);
-    
+
+
 if (!$doc->schemaValidate("meteo.xsd")) {
     echo "<p>Errore: Il documento XML non è valido secondo lo schema.</p>\n";
 }
+
+//Viene presa nota del numero di elementi "giorno" presenti nel fil xml, ci servirà dopo
 $root = $doc->documentElement;
 $elements = $root->childNodes;
 $total_elements = $elements->length;
 
-$current_item=($total_elements-7);
+$current_item=($total_elements-7);      //E' il primo elemento da visulizzare nel menù delle date (tot 7 date da visualizzare)
 if (isset($_GET['elem']))
     $current_item = $_GET['elem'];
 
+//In base alla condizione meteo del giorno selezionato, cambia l'immagine di intestazione
 $giorno = $root->getElementsByTagName('giorno')->item($current_item);
 $condizione = $giorno->getElementsByTagName('condizione')->item(0)->nodeValue;
 if ($condizione == 'Soleggiato'){
@@ -63,6 +73,7 @@ if ($condizione == 'Temporale'){
 
 <table class="date-table">
   <tr>
+    <!-- Visualizza le ultime 7 date presenti nel file XML -->
     <?php for ($i=($total_elements-7); $i<$total_elements; $i++) {
         if ($i==$current_item)
             echo "<td style=\"background-color: blue;\">";
@@ -70,8 +81,8 @@ if ($condizione == 'Temporale'){
             echo "<td>";
         $giorno = $root->getElementsByTagName('giorno')->item($i);
         $data = $giorno->getAttribute('data');
-        echo "<a href=\"previsioniMeteo.php?elem=$i\">$data</a>";
-    echo "</td>";
+        echo "<a href=\"previsioniMeteo.php?elem=$i\">$data</a>"; //Viene iniettata una query string
+        echo "</td>";
     } ?>
   </tr>
 </table>
