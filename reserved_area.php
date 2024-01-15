@@ -1,4 +1,16 @@
 <?php
+session_start();
+
+if (isset($_SESSION['accesso_consentito'])) {
+    if ($_SESSION['accesso_consentito']==false) {
+        header("Location: admin_login.php");
+        exit();
+    }
+} else {
+    header("Location: previsioniMeteo.php");
+    exit();
+}
+
 $message="";
 
 $xmlString = "";
@@ -66,7 +78,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $message="Le previsioni per il giorno " . $data . "<br>sono state caricate correttamente nel doc XML";
     }
-    if (isset($_POST['elimina'])) {
+    
+    $elements = $root->childNodes;
+    $total_elements = $elements->length;
+    if (isset($_POST['elimina'])&&$total_elements>7) {
         $ultimo = $root->lastChild;
         $root->removeChild($ultimo);
 
@@ -91,8 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="stili_login.css">
 </head>
 <body>
-<a href="previsioniMeteo.php">Torna alle previsioni meteo</a>
-
+<div>
+    <a href="admin_login.php"><img src="img/back.png" alt="Back"></a>
+</div>
 <div class="container">
     <?php 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
