@@ -1,8 +1,9 @@
 <?php
-
+//necessario per impedire l'accesso all'area riservata tramite url
 session_start(); 
 $_SESSION['accesso_consentito'] = false;
 
+//Nome utente e password inseriti dall'utente inviati con metodo POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -11,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $desiredUsername = 'stefano';
     $desiredPassword = 'pass123';
 
+    //Verifica delle credenziali 
     if ($username === $desiredUsername && $password === $desiredPassword) {
         $_SESSION['accesso_consentito'] = true;
         header("Location: reserved_area.php");
