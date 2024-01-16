@@ -1,5 +1,5 @@
 <?php
-//necessario per impedire l'accesso all'area riservata attraverso l'url
+//necessario per impedire l'accesso all'area riservata tramite url
 session_start(); 
 $_SESSION['accesso_consentito'] = false;
 
@@ -13,7 +13,7 @@ foreach ( file("meteo.xml") as $node ) {
 $doc = new DOMDocument();
 $doc->loadXML($xmlString);
 
-
+// Verifica se il documento XML non è valido secondo lo schema "meteo.xsd"
 if (!$doc->schemaValidate("meteo.xsd")) {
     echo "<p>Errore: Il documento XML non è valido secondo lo schema.</p>\n";
 }
@@ -23,9 +23,9 @@ $root = $doc->documentElement;
 $elements = $root->childNodes;
 $total_elements = $elements->length;
 
-$current_item=($total_elements-7);      //E' il primo elemento da visulizzare nel menù delle date (tot 7 date da visualizzare)
-if (isset($_GET['elem']))
-    $current_item = $_GET['elem'];
+$current_item=($total_elements-7);      //E' la prima data, selezionata per dafault...
+if (isset($_GET['elem']))               
+    $current_item = $_GET['elem'];      //...a meno che l'utente non ne abbia selezionata un'altra (query string riga 84)
 
 //In base alla condizione meteo del giorno selezionato, cambia l'immagine di intestazione
 $giorno = $root->getElementsByTagName('giorno')->item($current_item);
@@ -73,15 +73,15 @@ if ($condizione == 'Temporale'){
 
 <table class="date-table">
   <tr>
-    <!-- Visualizza le ultime 7 date presenti nel file XML -->
+    <!-- Visualizza le ULTIME 7 date presenti nel file XML -->
     <?php for ($i=($total_elements-7); $i<$total_elements; $i++) {
-        if ($i==$current_item)
-            echo "<td style=\"background-color: blue;\">";
+        if ($i==$current_item) 
+            echo "<td style=\"background-color: blue;\">"; //Sfondo blu per l'elemento selezionato
         else
-            echo "<td>";
+            echo "<td>";                    //...altrimenti niente sfondo blu
         $giorno = $root->getElementsByTagName('giorno')->item($i);
         $data = $giorno->getAttribute('data');
-        echo "<a href=\"previsioniMeteo.php?elem=$i\">$data</a>"; //Viene iniettata una query string
+        echo "<a href=\"previsioniMeteo.php?elem=$i\">$data</a>"; //Nel link viene iniettata una query string con il "numero item" corrispondente a quella data, verrà inviata quando l'utente farà click sulla data di suo interesse
         echo "</td>";
     } ?>
   </tr>
