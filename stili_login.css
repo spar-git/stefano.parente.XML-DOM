@@ -10,11 +10,11 @@ body {
     
 }
 
+/*stili per le form presenti nell'area riservata e nel login*/
 .container {
     text-align: center;
     margin: 10px;
 }
-
 
 h2 {
     color: #333;
