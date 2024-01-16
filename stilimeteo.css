@@ -16,6 +16,7 @@ body {
     position: relative;
 }
 
+/* stile per il pulsante di accesso all'area riservata */
 .button-admin {
     position: absolute;
     top: 10px; 
@@ -28,6 +29,8 @@ body {
     border-radius: 5px; 
     cursor: pointer; 
 }
+
+/*stili per l'immagine di intestazione e il nome della città*/
 img {
     width: 100%;
     height: 100%;
