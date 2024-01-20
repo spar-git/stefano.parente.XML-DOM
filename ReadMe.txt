@@ -19,7 +19,7 @@ sulla probabilità e l'intensità ddelle precipitazioni con i suoi attributi "pr
 l'illiminazione e la tendenza lunare con i suoi elementi figli <fase>, <illuminazione> e <tendenza>.
 
 -meteo.dtd. La DTD (Document Type Definition) fornita definisce la struttura e le regole che il documento XML di previsioni meteorologiche deve seguire.
-Questa è generalmente considerata meno espressiva e meno potente rispetto agli XML Schema in quanto non permette la dichiarazione vincoli avanzati. D'altronde
+Questa è generalmente considerata meno espressiva e meno potente rispetto agli XML Schema in quanto non permette la dichiarazione di vincoli avanzati. D'altronde
 è stato comunque possibile stabilire la non opzionalità degli attributi (#REQUIRED), stabilirne il tipo di contenuto (PCDATA) e l'enumerazione
 per la direzione del vento.
 
