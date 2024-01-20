@@ -1,0 +1,25 @@
+<!DOCTYPE previsioni [
+    <!ELEMENT previsioni (giorno+)>
+    <!ELEMENT giorno (condizione, temperatura, umidita, vento, precipitazioni, luna)>
+    <!ATTLIST giorno 
+        data CDATA #REQUIRED>
+
+    <!ELEMENT condizione (#PCDATA)>
+    <!ELEMENT temperatura (#PCDATA)>
+    <!ELEMENT umidita (#PCDATA)>
+
+    <!ELEMENT vento EMPTY>
+    <!ATTLIST vento 
+        velocita CDATA #REQUIRED 
+        direzione (E|SE|NE|W|SW|NW|S|N|) #REQUIRED>
+
+    <!ELEMENT precipitazioni EMPTY>
+    <!ATTLIST precipitazioni 
+        probabilita CDATA #REQUIRED 
+        intensita CDATA #REQUIRED>
+
+    <!ELEMENT luna (fase, illuminazione, tendenza)>
+    <!ELEMENT fase (#PCDATA)>
+    <!ELEMENT illuminazione (#PCDATA)>
+    <!ELEMENT tendenza (#PCDATA)>
+]>
