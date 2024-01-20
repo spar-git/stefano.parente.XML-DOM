@@ -18,6 +18,11 @@ condizione meteorologica prevista per il giorno, <temperatura>, che Indica la te
 sulla probabilità e l'intensità ddelle precipitazioni con i suoi attributi "probabilita" e "intensita" ed infine <luna>, che contiene informazioni sulla fase,
 l'illiminazione e la tendenza lunare con i suoi elementi figli <fase>, <illuminazione> e <tendenza>.
 
+-meteo.dtd. La DTD (Document Type Definition) fornita definisce la struttura e le regole che il documento XML di previsioni meteorologiche deve seguire.
+Questa è generalmente considerata meno espressiva e meno potente rispetto agli XML Schema in quanto non permette la dichiarazione vincoli avanzati. D'altronde
+è stato comunque possibile stabilire la non opzionalità degli attributi (#REQUIRED), stabilirne il tipo di contenuto (PCDATA) e l'enumerazione
+per la direzione del vento.
+
 - meteo.xsd. Questo XML Schema utilizza i namespace per evitare conflitti di nomi tra gli elementi o attributi di documenti XML diversi. Il namespace 
 personalizzato "wth" è definito come "http://www.xmldom.it/spazidinomi/meteo/". Questo file XSD stabilisce una struttura standard per la rappresentazione di 
 dati meteorologici in formato XML ed introduce tipi di dati complessi e semplici con restrizioni per garantire la coerenza e la validità dei dati. Ad esempio, 
@@ -36,8 +41,8 @@ dalla quale l'amministratore può gestire il contenuto della pagina pubblica, in
 - admin_login.php e reserved_area.php. Accedendo all'area riservata verranno richieste le credenziali di accesso, affinchè solo l'amministratore possa accedervi.
 Il controllo è stato riservato al codice php, tuttavia, in un contesto non simulato, sarebbe opportuno affidare questa gestione a un database, poiché rappresenta
 una pratica più sicura e scalabile. Una volta all'interno dell'area riservata, sono presenti due form: una dedicata all'inserimento di nuove previsioni 
-meteorologiche e l'altra per l'eliminazione di previsioni esistenti. Per quanto riguarda l'inserimento, sono stati aggiunti attributi alla form al fine di 
+meteorologiche e l'altra per l'eliminazione di previsioni esistenti. Per quanto riguarda l'inserimento, sono stati aggiunti attributi html alla form al fine di 
 prevenire l'inserimento di valori non conformi alle regole stabilite dalla DTD o dall'XML Schema. Nella form di eliminazione è stato necessario implementare il 
 controllo dei giorni rimanenti. Se si tentasse di eliminare troppe previsioni meteorologiche, riducendone il numero nel file XML a meno di 7, si verificherebbe
-un errore nella pagina "previsioniMeteo.php", poiché è prevista la visualizzazione di 7 date nel menu. Per questo motivo, raggiunto il minimo, comparirà un avviso
+un errore nella pagina "previsioniMeteo.php", poiché è prevista la visualizzazione di 7 date nel menu. Per questo motivo, raggiunto il minimo, apparià un avviso
 in sostituzione del pulsante di eliminazione di nuovi elementi.   Per accedere come admin: >>> username: stefano | password: pass123 <<<  
